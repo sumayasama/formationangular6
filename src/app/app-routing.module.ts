@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, Router, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [];
 
@@ -25,7 +25,10 @@ const appRoutes: Routes = [
 
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(appRoutes,
+    {    preloadingStrategy: PreloadAllModules
+  }
+    )],
   exports: [RouterModule]
 })
 export class AppRoutingModule {  // Diagnostic only: inspect router configuration
