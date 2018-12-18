@@ -10,6 +10,7 @@ import { Prestation } from 'src/app/shared/models/prestation.model';
 export class ListPrestationsComponent implements OnInit {
 
 public collection: Prestation[];
+public entetes: string[];
 
   constructor(private ps: PrestationService) { // injection de la classe PrestationService
     // public accessible et html et ts vs private que dans ts
@@ -18,6 +19,7 @@ public collection: Prestation[];
 
   ngOnInit() {
     this.collection = this.ps.collection; // dupliquer avec reference
+    this.entetes = ['Type', 'Client', 'Nb Jours', 'Tjm HT', 'Total HT', 'Total TTC', 'State'];
   }
 
 }

@@ -2,25 +2,11 @@
 <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Type</th>
-        <th scope="col">Client</th>
-        <th scope="col">Nb jours</th>
-        <th scope="col">Tjm HT</th>
-        <th scope="col">Total HT</th>
-        <th scope="col">Total TTC</th>
-        <th scope="col">state</th>
+        <th *ngFor="let entete of entetes">{{ entete }}</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of collection">
-        <td>{{item.typePresta}}</td>
-        <td>{{item.client}}</td>
-        <td>{{item.nbJours}}</td>
-        <td>{{item.tjmHT}}</td>
-        <td>{{item.totalHT()}}</td>
-        <td>{{item.totalTTC()}}</td>
-        <td>{{item.state}}</td>
-      </tr>
+   <app-item-prestation *ngFor="let data of collection"  [item]="data"></app-item-prestation>
     </tbody>
   </table>
 </div>
