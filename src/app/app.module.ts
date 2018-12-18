@@ -16,7 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     LoginModule,
     UiModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
