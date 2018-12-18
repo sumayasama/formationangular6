@@ -8,7 +8,9 @@ import { Prestation } from 'src/app/shared/models/prestation.model';
 })
 export class ItemPrestationComponent implements OnInit {
 
-  @Input() item: Prestation; // visible au parent
+  @Input() item: Prestation; // visible au parent : référence ou pointeur
+  // ngonChanges verifie si la ref change mais pas la valeur (=/= ngdoCheck)
+
   constructor() { }
 
   ngOnInit() {
