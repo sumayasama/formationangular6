@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { PageLoginComponent } from './login/page-login/page-login.component';
 
 const routes: Routes = [];
 
 // definition des routes
 const appRoutes: Routes = [
-  { path: 'login', component: PageLoginComponent },
+  { path: 'login', loadChildren: './login/login.module#LoginModule' }, // instancier un component que son module est déja importé
   { path: '',
     redirectTo: '/login' ,
   pathMatch : 'full'
