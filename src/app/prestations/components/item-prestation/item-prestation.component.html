@@ -2,8 +2,8 @@
     <td>{{item.typePresta}}</td>
     <td>{{item.client}}</td>
     <td>{{item.nbJours}}</td>
-    <td>{{item.tjmHT}}</td>
-    <td>{{item.totalHT()}}</td>
-    <td>{{item.totalTTC()}}</td>
+    <td>{{item.tjmHT | currency:'EUR'}}</td>
+    <td>{{item.totalHT() |  currency:'EUR'}}</td>
+    <td>{{item.totalTTC() |  currency:'EUR' }}</td>
     <td>{{item.state}}</td>
   </tr>
