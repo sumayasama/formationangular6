@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PagePrestationsComponent } from './page-prestations/page-prestations.component';
+import { PagePrestationsComponent } from './pages/page-prestations/page-prestations.component';
 
 const appRoutes: Routes = [
   { path: '', component: PagePrestationsComponent }];
