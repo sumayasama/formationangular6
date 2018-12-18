@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { PageLoginComponent } from './login/page-login/page-login.component';
 
 const routes: Routes = [];
@@ -7,11 +7,23 @@ const routes: Routes = [];
 // definition des routes
 const appRoutes: Routes = [
   { path: 'login', component: PageLoginComponent },
-
   { path: '',
     redirectTo: '/login' ,
   pathMatch : 'full'
-}
+},
+  {
+    path: 'prestations',
+    loadChildren: './prestations/prestations.module#PrestationsModule', // charger automatiquement des modules
+  },
+  {
+    path: 'clients',
+    loadChildren: './clients/clients.module#ClientsModule',
+  },
+  {
+    path: '**',
+    loadChildren: './page-not-found/page-not-found.module#PageNotFoundModule',
+  },
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
