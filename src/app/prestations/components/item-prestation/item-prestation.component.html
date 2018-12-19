@@ -1,9 +1,18 @@
 <tr>
-    <td>{{item.typePresta}}</td>
-    <td>{{item.client}}</td>
-    <td>{{item.nbJours}}</td>
-    <td>{{item.tjmHT | currency:'EUR'}}</td>
-    <td>{{item | total| currency:'EUR'}}</td>
-    <td>{{item | total: item.tauxTva | currency:'EUR' }}</td>
-    <td>{{item.state}}</td>
-  </tr>
+  <td>{{ item.typePresta }}</td>
+  <td>{{ item.client }}</td>
+  <td>{{ item.nbJours }}</td>
+  <td>{{ item.tjmHT | currency: "EUR" }}</td>
+  <td>{{ item | total | currency: "EUR" }}</td>
+  <td>{{ item | total: item.tauxTva | currency: "EUR" }}</td>
+  <td>
+    <select>
+      <!-- solution avec pipe -->
+      <!--
+        <option *ngFor="let state of states | keyvalue " [value]="state.key">{{state.value}}
+      -->
+      <!-- solution js -->
+      <option *ngFor="let state of states" [value]="state">{{ state }} </option>
+    </select>
+  </td>
+</tr>
