@@ -6,9 +6,11 @@ import { ListClientsComponent } from './containers/list-clients/list-clients.com
 import { ItemClientComponent } from './components/item-client/item-client.component';
 import { SharedModule } from '../shared/shared.module';
 import { PageNotFoundModule } from '../page-not-found/page-not-found.module';
+import { PageAddClientComponent } from './pages/page-add-client/page-add-client.component';
+import { AddClientComponent } from './containers/add-client/add-client.component';
 
 @NgModule({
-  declarations: [PageClientsComponent,  ListClientsComponent, ItemClientComponent],
+  declarations: [PageClientsComponent,  ListClientsComponent, ItemClientComponent, PageAddClientComponent, AddClientComponent],
   imports: [
     CommonModule,
     ClientsRoutingModule,

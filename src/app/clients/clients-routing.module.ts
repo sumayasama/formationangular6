@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PageClientsComponent } from './pages/page-clients/page-clients.component';
-import { PagePageNotFoundComponent } from '../page-not-found/page-page-not-found/page-page-not-found.component';
+import { PageAddClientComponent } from './pages/page-add-client/page-add-client.component';
 const appRoute = [{path : '' , component : PageClientsComponent},
-{ path: 'add', component : PagePageNotFoundComponent }];
+{ path: 'add', component : PageAddClientComponent }];
 
 @NgModule({
   declarations: [],

@@ -1,4 +1,5 @@
-import { StateDirective } from './StateDirective';
+import { StateDirective } from './state.directive';
+
 
 describe('StateDirective', () => {
   it('should create an instance', () => {

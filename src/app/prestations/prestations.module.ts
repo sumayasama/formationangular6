@@ -6,9 +6,11 @@ import { ListPrestationsComponent } from './containers/list-prestations/list-pre
 import { ItemPrestationComponent } from './components/item-prestation/item-prestation.component';
 import { SharedModule } from '../shared/shared.module';
 import { PageNotFoundModule } from '../page-not-found/page-not-found.module';
+import { PageAddPrestationComponent } from './pages/page-add-prestation/page-add-prestation.component';
+import { AddPrestationComponent } from './containers/add-prestation/add-prestation.component';
 
 @NgModule({
-  declarations: [PagePrestationsComponent, ListPrestationsComponent, ItemPrestationComponent],
+  declarations: [PagePrestationsComponent, ListPrestationsComponent, ItemPrestationComponent, PageAddPrestationComponent, AddPrestationComponent],
   imports: [
     CommonModule,
     PrestationsRoutingModule,

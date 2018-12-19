@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PagePrestationsComponent } from './pages/page-prestations/page-prestations.component';
-import { PagePageNotFoundComponent } from '../page-not-found/page-page-not-found/page-page-not-found.component';
+import { PageAddPrestationComponent } from './pages/page-add-prestation/page-add-prestation.component';
 
 const appRoutes: Routes = [
   { path: '', component: PagePrestationsComponent },
-  { path: 'add', component : PagePageNotFoundComponent }];
+  { path: 'add', component : PageAddPrestationComponent }];
 @NgModule({
   imports: [
     RouterModule.forChild(appRoutes)
