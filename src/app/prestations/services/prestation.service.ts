@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Prestation } from 'src/app/shared/models/prestation.model';
 import { fakePrestions } from './fake-prestations';
+import { ItemPrestationComponent } from '../components/item-prestation/item-prestation.component';
 
 @Injectable({
   providedIn: 'root' // inject ce service au niveau du root par défault depuis angular 6
@@ -23,5 +24,10 @@ export class PrestationService {
   }
   // ajouter un item dan la collection
   // update un item dans la collection
+  public update(item, state) {
+  item.state = state;
+  // console.log(item);
+
+  }
   // recuperer un item depuis la collection
 }
