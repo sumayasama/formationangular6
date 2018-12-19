@@ -8,11 +8,11 @@ nbJours : 10 ,
 client : 'CA',
 comment : 'prioritaire'
   }),
-//   new Prestation({
-// id : 'id2',
-// typePresta : 'Coaching',
-// nbJours : 2 ,
-// client : 'HSBC',
-// comment : 'non négocié'
-//   })
+   new Prestation({
+id : 'id2',
+ typePresta : 'Coaching',
+ nbJours : 2 ,
+ client : 'HSBC',
+ comment : 'non négocié'
+   })
  ];
