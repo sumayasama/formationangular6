@@ -1,0 +1,30 @@
+@import '~src/variables';
+#tab .state-option { //alourdir le poids pour garantir le style ne peux etre regressé
+  background: $palette-color-three;
+
+}
+#tab .state-annule {
+  background: $palette-color-two;
+
+}
+#tab .state-confirme {
+  background: $palette-color-four;
+
+}
+#tab .state-actif {
+  background: $palette-color-one;
+
+}
+#tab .state-inactif {
+  background: $palette-color-five;
+
+}
+
+app-list-prestations #tab thead{ //style specifique pour un componenet X
+  background: $dark-color;
+  color: $light-color;
+}
+#tab tbody > * { // > * n'importe first child
+  display : contents; // ce bloc la ne doit avoir aucun comportement spécifique
+}
+

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Prestation } from 'src/app/shared/models/prestation.model';
 import { State } from 'src/app/shared/enums/state.enum';
-import { TargetLocator } from 'selenium-webdriver';
 import { PrestationService } from '../../services/prestation.service';
 
 @Component({

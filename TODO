@@ -8,3 +8,4 @@ Todo:
 ✔ LoginRoutingModule pour la route login @started(18-12-18 11:28) @done(18-12-18 11:36) @lasted(8m43s)
 ✔ ClientsroutingModule pour la route clients (ex PrestationsRouting) @started(18-12-18 11:40) @done(18-12-18 11:41) @lasted(1m46s)
 ✔ PageNotFoundRouting pour la route page-note-found (same) @started(18-12-18 11:44) @done(18-12-18 11:47) @lasted(3m52s)
+✔ bouton avec icon marquer ajouter prestation et qu'on est rederigié vers route add réutilisable pour les clients @started(18-12-19 13:38) @done(18-12-19 14:15) @lasted(37m56s)
