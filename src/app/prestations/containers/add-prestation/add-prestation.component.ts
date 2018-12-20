@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Prestation } from 'src/app/shared/models/prestation.model';
+import { PrestationService } from '../../services/prestation.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-prestation',
@@ -8,12 +10,18 @@ import { Prestation } from 'src/app/shared/models/prestation.model';
 })
 export class AddPrestationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private ps: PrestationService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
   }
 
   public add(item: Prestation) {
-    console.log(item);
-  }
+    this.ps.add(item);
+// this.router.navigate(['prestations']); // route absolue le '/' au debut n'a aucun impact
+this.router.navigate(['../', {relativeTo: this.route}]); // route relative (import service Activatedroute)
+}
 }

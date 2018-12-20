@@ -1,5 +1,5 @@
 <app-tableau [headers]="entetes">
   <!-- va être projeter au lieu du dernier ng-content (ou premier avec select)  dans tableau component sauf si on ajoute un attribut select (css) simple ou de classe ou d'attribut on peut choisir le quel des ng-content-->
-    <app-item-prestation *ngFor="let data of collection"  [item]="data"></app-item-prestation>
+    <app-item-prestation *ngFor="let data of collection$ | async"  [item]="data"></app-item-prestation>
 </app-tableau>
 <app-add-row add="Ajouter une prestation"></app-add-row> <!-- si on bind avec string c'est sans crochets -->
