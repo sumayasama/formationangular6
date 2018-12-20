@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { State } from 'src/app/shared/enums/state.enum';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Prestation } from 'src/app/shared/models/prestation.model';
@@ -10,6 +10,7 @@ import { Prestation } from 'src/app/shared/models/prestation.model';
 })
 export class FormPrestationComponent implements OnInit {
 
+@Output() nItem: EventEmitter<Prestation> = new EventEmitter(); // listner
 public states = State;
 public form: FormGroup; // group de formControl
 private init = new Prestation();
@@ -40,7 +41,6 @@ comment: [this.init.comment]
   }
 
   public onSubmit() {
-    console.log(this.form.value);
-
-  }
+this.nItem.emit(this.form.value);
+}
 }

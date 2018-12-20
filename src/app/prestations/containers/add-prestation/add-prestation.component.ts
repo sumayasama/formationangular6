@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Prestation } from 'src/app/shared/models/prestation.model';
 
 @Component({
   selector: 'app-add-prestation',
@@ -12,4 +13,7 @@ export class AddPrestationComponent implements OnInit {
   ngOnInit() {
   }
 
+  public add(item: Prestation) {
+    console.log(item);
+  }
 }
