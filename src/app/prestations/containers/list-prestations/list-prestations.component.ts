@@ -21,7 +21,7 @@ public entetes: string[];
 
   ngOnInit() {
     // this.collection = this.ps.collection; // dupliquer avec reference
-    this.entetes = ['Type', 'Client', 'Nb Jours', 'Tjm HT', 'Total HT', 'Total TTC', 'State'];
+    this.entetes = ['Type', 'Client', 'Nb Jours', 'Tjm HT', 'Total HT', 'Total TTC', 'State', ''];
 
   //  this.sub = this.ps.collection.subscribe(data => {
   //     this.collection = data;

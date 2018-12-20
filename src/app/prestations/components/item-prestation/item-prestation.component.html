@@ -14,5 +14,13 @@
       <!-- solution js -->
       <!-- <option *ngFor="let state of states" [value]="state">{{ state }} </option> -->
     </select>
+
   </td>
+<td>
+  <span>
+    <a (click)="delete(item)" routerLinkActive="router-link-active">
+    <fa-icon [icon]="faTrash"> </fa-icon>
+</a>
+   </span>
+</td>
 </tr>

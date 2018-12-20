@@ -20,8 +20,10 @@ export class AddPrestationComponent implements OnInit {
   }
 
   public add(item: Prestation) {
-    this.ps.add(item);
+    this.ps.add(item).then(() => {
+      this.router.navigate(['../', {relativeTo: this.route}]); // route relative (import service Activatedroute)
+
+    });
 // this.router.navigate(['prestations']); // route absolue le '/' au debut n'a aucun impact
-this.router.navigate(['../', {relativeTo: this.route}]); // route relative (import service Activatedroute)
 }
 }

@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Prestation } from 'src/app/shared/models/prestation.model';
+import { State } from 'src/app/shared/enums/state.enum';
 
 @Injectable({
   providedIn: 'root' // inject ce service au niveau du root par défault depuis angular 6
@@ -35,16 +36,38 @@ export class PrestationService {
   public set collection$( col: Observable<Prestation []>) {
   this._collection$ = col;
   }
-  // ajouter un item dan la collection
-  public add(item: Prestation) {
-    // this.collection.push(new Prestation(item)); // faudra faire un new parcequ'item est un simple obj js
+
+  // add presta
+  add(item: Prestation): Promise<any> {
+    const id = this.afs.createId();
+    const prestation = { id, ...item };
+    return this.itemsCollection.doc(id).set(prestation).catch((e) => {
+      console.log(e);
+    });
+    // return this.http.post('urlapi/addprestation', item);
   }
 
-  // update un item dans la collection
-  public update(item, state) {
-  item.state = state;
-  // console.log(item);
 
+  update(item: Prestation, state?: State): Promise<any> {
+    const presta  = {...item};
+    if (state) {
+      presta.state = state;
+    }
+    return this.itemsCollection.doc(item.id).update(presta).catch((e) => {
+      console.log(e);
+    });
+    // return this.http.patch('urlapi/prestationupdate/'+item.id, presta);
   }
-  // recuperer un item depuis la collection
+
+  public delete(item: Prestation): Promise<any> {
+    return this.itemsCollection.doc(item.id).delete().catch((e) => {
+      console.log(e);
+    });
+    // return this.http.delete(`urlapi/prestations/delete/${item.id}`);
+  }
+
+  getPrestation(id: string): Observable<Prestation> {
+    return this.itemsCollection.doc<Prestation>(id).valueChanges();
+    // return this.http.get(`urlapi/prestations/get/${id}`);
+  }
 }
