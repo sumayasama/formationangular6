@@ -1,0 +1,37 @@
+<div class="container">
+  <form [formGroup]="form" nonvalidate  (ngSubmit)="onSubmit()"> <!-- nonvalidate: indiquer au navigateur de ne pas utiliser ses validateurs, c'est au code de le faire, pour la reutilisabilité-->
+    <div class="form-group">
+      <label for="type">Type</label> <!-- for et id doivent avoir la même valeur-->
+      <input type="text" class="form-control" id="type" formControlName="typePresta">
+    </div>
+    <div class="form-group">
+      <label for="client">Client</label>
+      <input type="text" class="form-control" id="client" formControlName="client">
+    </div>
+    <div class="form-group">
+      <label for="nbJours">NbJours</label>
+      <input type="number" class="form-control" id="nbJours" formControlName="nbJours">
+    </div>
+    <div class="form-group">
+      <label for="tjm">TjmHT</label>
+      <input type="number" class="form-control" id="tjm" formControlName="tjmHT">
+    </div>
+    <div class="form-group">
+      <label for="tauxTva">Tva</label>
+      <input type="number" class="form-control" id="tauxTva" formControlName="tauxTva" >
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <select  class="form-control" id="state" formControlName="state">
+        <option *ngFor="let state of states | keyvalue" [value]="state.value">
+          {{ state.value }}
+        </option>
+      </select>
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea class="form-control" id="comment" formControlName="comment"></textarea>
+      </div>
+    </div>
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

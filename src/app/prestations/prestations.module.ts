@@ -8,14 +8,18 @@ import { SharedModule } from '../shared/shared.module';
 import { PageNotFoundModule } from '../page-not-found/page-not-found.module';
 import { PageAddPrestationComponent } from './pages/page-add-prestation/page-add-prestation.component';
 import { AddPrestationComponent } from './containers/add-prestation/add-prestation.component';
+import { FormPrestationComponent } from './components/form-prestation/form-prestation.component';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [PagePrestationsComponent, ListPrestationsComponent, ItemPrestationComponent, PageAddPrestationComponent, AddPrestationComponent],
+  declarations: [PagePrestationsComponent, ListPrestationsComponent,
+     ItemPrestationComponent, PageAddPrestationComponent, AddPrestationComponent, FormPrestationComponent],
   imports: [
     CommonModule,
     PrestationsRoutingModule,
     SharedModule,
-    PageNotFoundModule
+    PageNotFoundModule,
+    ReactiveFormsModule
   ]
 })
 export class PrestationsModule { }
