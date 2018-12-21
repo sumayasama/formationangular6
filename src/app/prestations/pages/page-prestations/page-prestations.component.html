@@ -1,3 +1,15 @@
 <app-template-a title="PRESTATIONS">
     <app-list-prestations></app-list-prestations>
 </app-template-a>
+<!-- ajouter la navigation des routes enfants-->
+<ul class="nav nav-tabs">
+
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['detail']" routerLinkActive="router-link-active">Détail</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['comment']" routerLinkActive="router-link-active">Commentaire</a>
+  </li>
+
+</ul>
+<router-outlet></router-outlet>

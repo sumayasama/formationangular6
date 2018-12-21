@@ -44,4 +44,10 @@ public faTrash = faTrash;
       // to do
       // });
   }
+  detail() {
+    // enregistrer la ligne dans le service
+    this.ps.presta$.next(this.item);
+
+
+  }
 }

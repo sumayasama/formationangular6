@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { map, flatMap } from 'rxjs/operators';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { State } from 'src/app/shared/enums/state.enum';
 import { Prestation } from 'src/app/shared/models/prestation.model';
 
@@ -15,7 +15,8 @@ export class PrestationService {
 
   private _collection$: Observable<Prestation []>; // alias
   private itemsCollection: AngularFirestoreCollection<Prestation>; // Observable a chaud
-
+  // observable chaud (subject de type behaviorsubject: stock la derniere valeur contrairement au subject)
+  public presta$: BehaviorSubject<Prestation> = new BehaviorSubject(null);
   constructor(
     private afs: AngularFirestore, // service acces des donnes sur firebase cloud
     private http: HttpClient
@@ -24,7 +25,10 @@ export class PrestationService {
     // this.collection = fakePrestions; // getter ou setter ?  c'est JS qui sache quoi prendre
     this.itemsCollection = afs.collection<Prestation>('prestations'); // interroger base (collections prestations)
     this.collection$ = this.itemsCollection.valueChanges().pipe(
-    map(data => { // tableau des items
+  // parentthese non obligatoir car un seul paramete, return implicite car une seul instruction
+   //   map(data => data.map (item => new Prestation(item)))
+     map(data => { // tableau des items
+      this.presta$.next(new Prestation(data[0])); // recuperer le 1er elt
         return data.map((item) => {
             return  new Prestation(item); // chaque item
         });
