@@ -28,7 +28,7 @@ export class PrestationService {
   // parentthese non obligatoir car un seul paramete, return implicite car une seul instruction
    //   map(data => data.map (item => new Prestation(item)))
      map(data => { // tableau des items
-      this.presta$.next(new Prestation(data[0])); // recuperer le 1er elt
+      this.presta$.next(data[0] ? new Prestation(data[0]) : null); // recuperer le 1er elt
         return data.map((item) => {
             return  new Prestation(item); // chaque item
         });
