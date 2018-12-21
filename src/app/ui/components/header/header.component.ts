@@ -19,7 +19,7 @@ public open = true;
 // appeler avant :
   constructor() {}
   ngOnInit() {
-    this.title = 'Anwendung';
+    this.title = 'GUM';
   }
 
 }
