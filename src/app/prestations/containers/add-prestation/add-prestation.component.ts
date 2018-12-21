@@ -20,10 +20,16 @@ export class AddPrestationComponent implements OnInit {
   }
 
   public add(item: Prestation) {
+    // facon firebase
     this.ps.add(item).then(() => {
       this.router.navigate(['../', {relativeTo: this.route}]); // route relative (import service Activatedroute)
 
     });
+    // facon http
+    // this.ps.add(item).subscribe((data) => { // data : reponse api
+    //   this.router.navigate(['../', {relativeTo: this.route}]); // route relative (import service Activatedroute)
+
+    // });
 // this.router.navigate(['prestations']); // route absolue le '/' au debut n'a aucun impact
 }
 }

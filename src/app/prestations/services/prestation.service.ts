@@ -1,9 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Prestation } from 'src/app/shared/models/prestation.model';
+import { map, flatMap } from 'rxjs/operators';
 import { State } from 'src/app/shared/enums/state.enum';
+import { Prestation } from 'src/app/shared/models/prestation.model';
 
 @Injectable({
   providedIn: 'root' // inject ce service au niveau du root par défault depuis angular 6
@@ -16,8 +17,10 @@ export class PrestationService {
   private itemsCollection: AngularFirestoreCollection<Prestation>; // Observable a chaud
 
   constructor(
-    private afs: AngularFirestore // service acces des donnes sur firebase cloud
+    private afs: AngularFirestore, // service acces des donnes sur firebase cloud
+    private http: HttpClient
   ) {
+    // façon firebase
     // this.collection = fakePrestions; // getter ou setter ?  c'est JS qui sache quoi prendre
     this.itemsCollection = afs.collection<Prestation>('prestations'); // interroger base (collections prestations)
     this.collection$ = this.itemsCollection.valueChanges().pipe(
@@ -27,6 +30,16 @@ export class PrestationService {
         });
     })
   ); // transformer les donnees de json a notre type de modele;
+
+
+  //  façon htttp le retour est un observable, un subscribe est obligatoire pour executer les requetes crud
+  // this._collection$ = this.http.get<Prestation[]>(`${URL_API}/prestations}`).pipe(
+  //   map(data => { // tableau des items
+  //     return data.map((item) => {
+  //         return  new Prestation(item); // chaque item
+  //     });
+  // })
+  // );
   }
   // récupere une collection
   public get collection$(): Observable<Prestation []> { // get / set : propriétés utiliser au lieu de getX et setX classiques
@@ -44,7 +57,7 @@ export class PrestationService {
     return this.itemsCollection.doc(id).set(prestation).catch((e) => {
       console.log(e);
     });
-    // return this.http.post('urlapi/addprestation', item);
+    // return this.http.post(`${URL_API}/prestations}`, item);
   }
 
 
@@ -56,18 +69,18 @@ export class PrestationService {
     return this.itemsCollection.doc(item.id).update(presta).catch((e) => {
       console.log(e);
     });
-    // return this.http.patch('urlapi/prestationupdate/'+item.id, presta);
+    // return this.http.patch(`${URL_API}/prestations}`, presta); //ou PUT (modification de l'objet entier vs âtch modif partielle)
   }
 
   public delete(item: Prestation): Promise<any> {
     return this.itemsCollection.doc(item.id).delete().catch((e) => {
       console.log(e);
     });
-    // return this.http.delete(`urlapi/prestations/delete/${item.id}`);
+    // return this.http.delete(`${URL_API}/prestations}/${item.id}`);
   }
 
   getPrestation(id: string): Observable<Prestation> {
     return this.itemsCollection.doc<Prestation>(id).valueChanges();
-    // return this.http.get(`urlapi/prestations/get/${id}`);
+    // return this.http.get<Prestation>(`${URL_API}/prestations}/${id}`); // on oublie pas le susbscribe
   }
 }

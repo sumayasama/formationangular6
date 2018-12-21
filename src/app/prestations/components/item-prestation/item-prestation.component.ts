@@ -23,15 +23,25 @@ public faTrash = faTrash;
   }
    changeState(event) {
    const state = event.target.value;
+   // façon firebase
    this.ps.update(this.item, state).then(() => {
      console.log('woohoo! state mis à jour');
    });
+   // façon http
+  //  this.ps.update(this.item, state).subscribe((reponse) => {
+  //   to do
+  //  });
   }
 
-  delete(item) {
-    this.ps.delete(item).then((data) => {
+  delete() {
+       // façon firebase
+    this.ps.delete(this.item).then((data) => {
       console.log(data);
 
     });
+       // façon http
+      //  this.ps.delete(this.item).subscribe((reponse) => {
+      // to do
+      // });
   }
 }
