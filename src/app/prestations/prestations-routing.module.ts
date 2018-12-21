@@ -10,6 +10,7 @@ const appRoutes: Routes = [
     path: '',
     component: PagePrestationsComponent,
     children: [
+      {path: '', redirectTo: 'detail', pathMatch: 'full'},
       {path: 'detail', component: DetailPrestationComponent},
       {path: 'comment', component: CommentPrestationComponent}, { path: 'add', component : PageAddPrestationComponent }
     ]
